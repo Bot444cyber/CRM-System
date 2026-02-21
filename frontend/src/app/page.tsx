@@ -12,13 +12,13 @@ export default function App() {
   return (
     <main className="w-full min-h-screen bg-black">
       <Header />
-      <Hero />
-      <AllTechSection />
-      <Features />
-      <Integrations />
-      <SocialProof />
-      <FAQSection />
-      <CTASection />
+        <Hero />
+        <AllTechSection />
+        <Features />
+        <Integrations />
+        <SocialProof />
+        <FAQSection />
+        <CTASection />
       <Footer />
     </main>
   );

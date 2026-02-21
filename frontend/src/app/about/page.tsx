@@ -1,41 +1,59 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
-import { Target, Users, Zap, Building } from 'lucide-react';
+import { Target, Users, Zap, Building, Plus, Minus } from 'lucide-react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import Squares from '@/components/Design/Squares';
 
 const values = [
     {
         title: "Everything in One Place",
         description: "Why pay for a separate website builder, calendar, and CRM? We bring your storefront, history logs, and analytics together.",
-        icon: <Zap className="w-6 h-6 text-white/70" />
+        icon: <Zap className="w-5 h-5" />
     },
     {
         title: "Built for Everyone",
         description: "Our tools are made for real business owners, not just tech experts. Simple dashboards mean you spend less time clicking and more time selling.",
-        icon: <Users className="w-6 h-6 text-white/70" />
+        icon: <Users className="w-5 h-5" />
     },
     {
         title: "Grow Naturally",
         description: "Whether you just need a simple business showcase or a full system to manage thousands of leads, our platform scales with you.",
-        icon: <Target className="w-6 h-6 text-white/70" />
+        icon: <Target className="w-5 h-5" />
     }
 ];
 
 export default function AboutPage() {
+    const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+    const toggleValue = (index: number) => {
+        setOpenIndex(openIndex === index ? null : index);
+    };
+
     return (
         <main className="min-h-screen bg-black text-white selection:bg-white/30 flex flex-col">
             <Header />
+
+            {/* Background Texture */}
+            <div className="fixed inset-0 z-0 pointer-events-none opacity-40">
+                <Squares
+                    direction="diagonal"
+                    speed={0.3}
+                    squareSize={24}
+                    borderColor="#222"
+                    hoverFillColor="#1a1a1a"
+                />
+            </div>
 
             <div className="flex-1 pt-32 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
 
                 {/* Hero / Mission Statement */}
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95, y: 30 }}
-                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.7, ease: "easeOut" }}
                     className="max-w-4xl mx-auto text-center mb-32 relative"
@@ -52,36 +70,65 @@ export default function AboutPage() {
                     </p>
                 </motion.div>
 
-                {/* Core Values Section */}
-                <div className="mb-32">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.5 }}
-                        className="text-3xl font-bold mb-12 text-center tracking-tight"
-                    >
-                        Our Core Values
-                    </motion.h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {values.map((value, index) => (
-                            <motion.div
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-50px" }}
-                                transition={{ duration: 0.5, delay: index * 0.15 }}
-                                key={index}
-                                className="group bg-[#0c0c10] border border-white/10 rounded-3xl p-8 hover:bg-white hover:text-black hover:-translate-y-2 transition-all duration-500 shadow-lg hover:shadow-white/20 cursor-pointer"
-                            >
-                                <div className="mb-6 p-4 inline-block bg-white/5 group-hover:bg-black group-hover:text-white rounded-2xl border border-white/10 group-hover:border-black transition-all duration-500">
-                                    {React.cloneElement(value.icon, { className: "w-6 h-6 text-white/70 group-hover:text-white transition-colors duration-500" })}
-                                </div>
-                                <h3 className="text-xl font-bold mb-3 group-hover:text-black transition-colors duration-500">{value.title}</h3>
-                                <p className="text-neutral-400 group-hover:text-neutral-600 leading-relaxed transition-colors duration-500">
-                                    {value.description}
-                                </p>
-                            </motion.div>
-                        ))}
+                {/* Core Values Section (List format like FAQ) */}
+                <div className="mb-32 flex justify-center">
+                    <div className="max-w-4xl w-full">
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5 }}
+                            className="text-3xl font-bold mb-12 text-center tracking-tight"
+                        >
+                            Our Core Values
+                        </motion.h2>
+
+                        <div className="flex flex-col gap-4">
+                            {values.map((value, index) => (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true, margin: "-50px" }}
+                                    transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+                                    key={index}
+                                    className="border border-neutral-800 rounded-2xl bg-[#0c0c10] overflow-hidden hover:border-white hover:bg-white hover:text-black transition-all duration-300 group"
+                                >
+                                    <button
+                                        onClick={() => toggleValue(index)}
+                                        className="w-full flex items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
+                                        aria-expanded={openIndex === index}
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <div className="p-3 rounded-xl bg-white/5 group-hover:bg-black/5 border border-white/10 group-hover:border-black/10 transition-colors">
+                                                {React.cloneElement(value.icon, { className: "text-white/70 group-hover:text-black transition-colors" })}
+                                            </div>
+                                            <span className="text-lg font-medium pr-8">{value.title}</span>
+                                        </div>
+                                        <span className="text-neutral-400 group-hover:text-black shrink-0 bg-neutral-900 group-hover:bg-neutral-200 p-2 rounded-full transition-colors">
+                                            {openIndex === index ? (
+                                                <Minus className="w-5 h-5" />
+                                            ) : (
+                                                <Plus className="w-5 h-5" />
+                                            )}
+                                        </span>
+                                    </button>
+                                    <AnimatePresence>
+                                        {openIndex === index && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                            >
+                                                <div className="p-6 pt-0 text-neutral-400 group-hover:text-neutral-600 leading-relaxed text-lg transition-colors ml-16">
+                                                    {value.description}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

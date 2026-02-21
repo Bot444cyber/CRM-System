@@ -4,125 +4,221 @@ import React from 'react';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import { motion } from 'framer-motion';
-import { ShoppingCart, LineChart, Users, History, Settings, CalendarClock, ArrowRight } from 'lucide-react';
+import {
+    Globe, ShoppingBag, Rss, MessageSquare, GraduationCap, MessageCircle,
+    Users, DollarSign, Monitor, RefreshCw, Key,
+    Calculator, FileText, Receipt, Files, Table, PenTool,
+    Box, Factory, Wrench, CreditCard, Settings, CheckCircle,
+    UserPlus, CalendarOff, Star, Share2, Truck,
+    Megaphone, Mail, Smartphone, Heart, CalendarDays, ClipboardList,
+    CheckSquare, Clock, Zap, LifeBuoy, Calendar, CalendarClock,
+    ThumbsUp, Cpu, Phone, BookOpen
+} from 'lucide-react';
 import Link from 'next/link';
 
-const products = [
+import Squares from '@/components/Design/Squares';
+
+// Data strictly modeled after the provided categorized apps design
+const productCategories = [
     {
-        title: "Business Showcases",
-        description: "Launch stunning, high-performance websites to showcase your business. Perfect for everything from simple product pages to full-scale E-Commerce storefronts.",
-        icon: <ShoppingCart className="w-6 h-6 text-white" />,
-        features: ["E-Commerce Ready", "Custom Themes", "Mobile Optimized"],
-        tag: "Popular"
+        name: "Website",
+        apps: [
+            { name: "Website", desc: "Enterprise website builder", icon: Globe, color: "text-blue-500" },
+            { name: "eCommerce", desc: "Sell your products online", icon: ShoppingBag, color: "text-purple-500" },
+            { name: "Blog", desc: "Publish and engage with visitors", icon: Rss, color: "text-pink-500" },
+            { name: "eLearning", desc: "Manage and publish courses", icon: GraduationCap, color: "text-blue-500" },
+        ]
     },
     {
-        title: "Analytics Dashboard",
-        description: "Make data-driven decisions with our comprehensive business dashboards. Visualize trends, track KPIs, and turn raw data into actionable insights.",
-        icon: <LineChart className="w-6 h-6 text-white" />,
-        features: ["Real-time Metrics", "Custom Reports", "Data Export"],
-        tag: "Core"
+        name: "Sales",
+        apps: [
+            { name: "CRM", desc: "Track leads and close opportunities", icon: Users, color: "text-blue-400" },
+            { name: "Sales", desc: "From quotes to invoices", icon: DollarSign, color: "text-green-500" },
+            { name: "Point of Sale", desc: "User friendly Point of Sale", icon: Monitor, color: "text-orange-500" },
+            { name: "Subscriptions", desc: "Recurring billing and renewals", icon: RefreshCw, color: "text-cyan-500" },
+            { name: "Rental", desc: "Manage contracts and deliveries", icon: Key, color: "text-yellow-500" }
+        ]
     },
     {
-        title: "Lead Management",
-        description: "Capture, nurture, and convert more leads. Our centralized pipeline ensures you never miss a follow-up and perfectly tracks the customer journey.",
-        icon: <Users className="w-6 h-6 text-white" />,
-        features: ["Pipeline Tracking", "Automated Follow-ups", "Lead Scoring"],
-        tag: "Growth"
+        name: "Finance",
+        apps: [
+            { name: "Accounting", desc: "Manage financial and analytic accounting", icon: Calculator, color: "text-emerald-500" },
+            { name: "Invoicing", desc: "Invoices & Payments", icon: FileText, color: "text-blue-500" },
+            { name: "Expenses", desc: "Manage employee expenses", icon: Receipt, color: "text-rose-400" },
+            { name: "Documents", desc: "AI document management", icon: Files, color: "text-purple-400" },
+            { name: "Spreadsheet", desc: "Document spreadsheet", icon: Table, color: "text-green-400" },
+            { name: "Sign", desc: "Send documents to sign", icon: PenTool, color: "text-indigo-400" }
+        ]
     },
     {
-        title: "Contact & History Log",
-        description: "Maintain a rigorous, universally accessible database of every customer interaction. Securely store contact details, communication history, and transaction records.",
-        icon: <History className="w-6 h-6 text-white" />,
-        features: ["Interaction Timeline", "Transaction Logs", "Secure Storage"],
-        tag: "Essential"
+        name: "Inventory & Manufacturing",
+        apps: [
+            { name: "Inventory", desc: "Manage your stock and logistics", icon: Box, color: "text-orange-500" },
+            { name: "Manufacturing", desc: "Manufacturing Orders & BOMs", icon: Factory, color: "text-slate-400" },
+            { name: "PLM", desc: "Product Lifecycle Management", icon: Wrench, color: "text-blue-500" },
+            { name: "Purchase", desc: "Purchase orders, receipts & vendors", icon: CreditCard, color: "text-emerald-400" },
+            { name: "Maintenance", desc: "Track equipment and manage requests", icon: Settings, color: "text-zinc-400" },
+            { name: "Quality", desc: "Control the quality of your products", icon: CheckCircle, color: "text-teal-400" }
+        ]
     },
     {
-        title: "Workflow Automation",
-        description: "Eliminate repetitive tasks by building automated logic rules. Connect your storefront, CRM, and analytics to run your business on autopilot.",
-        icon: <Settings className="w-6 h-6 text-white" />,
-        features: ["Visual Builder", "Cross-app Sync", "Event Triggers"],
-        tag: "Advanced"
+        name: "Human Resources",
+        apps: [
+            { name: "Employees", desc: "Centralize employee information", icon: Users, color: "text-blue-500" },
+            { name: "Recruitment", desc: "Track your recruitment pipeline", icon: UserPlus, color: "text-purple-500" },
+            { name: "Time Off", desc: "Allocate PTO and follow leaves", icon: CalendarOff, color: "text-orange-400" },
+            { name: "Appraisals", desc: "Assess your employees", icon: Star, color: "text-yellow-400" },
+            { name: "Referrals", desc: "Share job positions and track friends", icon: Share2, color: "text-pink-400" },
+            { name: "Fleet", desc: "Manage vehicles and track costs", icon: Truck, color: "text-slate-500" }
+        ]
     },
     {
-        title: "Scheduling & Reminders",
-        description: "Seamlessly book appointments and synchronize meetings. Automated email and SMS reminders ensure your clients never miss a session.",
-        icon: <CalendarClock className="w-6 h-6 text-white" />,
-        features: ["Calendar Sync", "Automated Alerts", "Booking Pages"],
-        tag: "New"
+        name: "Marketing",
+        apps: [
+            { name: "Marketing Automation", desc: "Build automated mailing campaigns", icon: Megaphone, color: "text-red-500" },
+            { name: "Email Marketing", desc: "Design, send and track emails", icon: Mail, color: "text-blue-400" },
+            { name: "SMS Marketing", desc: "Design, send and track SMS", icon: Smartphone, color: "text-teal-400" },
+            { name: "Social Marketing", desc: "Manage social media and web pushes", icon: Heart, color: "text-rose-500" },
+            { name: "Events", desc: "Publish events and track sales", icon: CalendarDays, color: "text-orange-500" },
+            { name: "Surveys", desc: "Send your surveys and share them alive", icon: ClipboardList, color: "text-emerald-500" }
+        ]
+    },
+    {
+        name: "Services",
+        apps: [
+            { name: "Project", desc: "Organize and plan your tasks", icon: CheckSquare, color: "text-purple-500" },
+            { name: "Timesheet", desc: "Track employee time spent", icon: Clock, color: "text-blue-500" },
+            { name: "Field Service", desc: "Schedule and track onsite operations", icon: Zap, color: "text-amber-500" },
+            { name: "Helpdesk", desc: "Track, prioritize and solve tickets", icon: LifeBuoy, color: "text-rose-400" },
+            { name: "Planning", desc: "Manage your employee schedule", icon: Calendar, color: "text-teal-500" },
+            { name: "Appointments", desc: "Allow people to book meetings", icon: CalendarClock, color: "text-indigo-400" }
+        ]
+    },
+    {
+        name: "Productivity",
+        apps: [
+            { name: "Discuss", desc: "Chat, mail gateways and private channels", icon: MessageSquare, color: "text-blue-400" },
+            { name: "Approvals", desc: "Create and validate employee requests", icon: ThumbsUp, color: "text-green-500" },
+            { name: "IoT", desc: "Basic models and actions for IoT", icon: Cpu, color: "text-slate-400" },
+            { name: "VoIP", desc: "Make and receive phone calls", icon: Phone, color: "text-emerald-400" },
+            { name: "Knowledge", desc: "Manage your knowledge base", icon: BookOpen, color: "text-purple-400" }
+        ]
+    },
+    {
+        name: "Customization",
+        apps: [
+            { name: "Studio", desc: "Create and customize your apps", icon: Wrench, color: "text-orange-500" }
+        ]
     }
 ];
 
 export default function ProductsPage() {
     return (
-        <main className="min-h-screen bg-black text-white selection:bg-white/30 flex flex-col">
+        <main className="min-h-screen bg-black text-white selection:bg-white/30 flex flex-col overflow-hidden">
             <Header />
 
-            <div className="flex-1 pt-32 pb-24 px-6 sm:px-8 md:px-12 max-w-7xl mx-auto w-full">
+            {/* Background Texture */}
+            <div className="fixed inset-0 z-0 pointer-events-none">
+                <Squares
+                    direction="diagonal"
+                    speed={0.4}
+                    squareSize={32}
+                    borderColor="#1a1a1a"
+                    hoverFillColor="#222222"
+                />
+            </div>
+
+            <div className="relative z-10 flex-1 pt-32 pb-24 px-6 sm:px-8 md:px-12 max-w-[1400px] mx-auto w-full">
 
                 {/* Hero Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="text-center mb-24 relative"
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    className="text-center mb-24 sm:mb-32 relative pt-10"
                 >
-                    {/* Subtle glow */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-white/5 blur-[100px] rounded-full pointer-events-none" />
-
-                    <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tighter mb-6 relative z-10">
-                        Tools built for <br />
-                        <span className="text-white/40">hyper-growth.</span>
+                    <h1 className="text-5xl sm:text-7xl lg:text-[5.5rem] font-bold tracking-tighter mb-4 text-white" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                        One <span className="underline decoration-blue-500/80 decoration-[4px] underline-offset-[8px]">need</span>, one <span className="underline decoration-blue-500/80 decoration-[4px] underline-offset-[8px]">app</span>.
                     </h1>
-                    <p className="text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed relative z-10">
-                        Discover our suite of interconnected products designed to scale your revenue operations without the usual complexity.
-                    </p>
                 </motion.div>
 
-                {/* Product Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {products.map((product, index) => (
+                {/* Categories & Product Grids */}
+                <div className="space-y-20 lg:space-y-28 max-w-6xl mx-auto">
+                    {productCategories.map((category, idx) => (
                         <motion.div
-                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                            whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
-                            key={index}
-                            className="group relative bg-[#0c0c10] border border-white/10 rounded-3xl p-8 hover:bg-white hover:text-black hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col cursor-pointer shadow-lg hover:shadow-white/20"
+                            key={idx}
+                            initial={{ opacity: 0, y: 40 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-100px" }}
+                            transition={{ duration: 0.7, ease: "easeOut" }}
+                            className="relative"
                         >
-                            {/* Hover Gradient (Hidden on hover cause bg goes white) */}
-                            <div className="absolute inset-0 bg-linear-to-b from-white/5 to-transparent opacity-0 group-hover:opacity-0 transition-opacity duration-500 pointer-events-none" />
+                            <h2 className="text-3xl sm:text-4xl font-semibold mb-8 lg:mb-10 text-white/90" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+                                {category.name}
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                                {category.apps.map((app, appIdx) => {
+                                    // Determine href based on app name (currently only 'Website' is fully implemented)
+                                    const href = app.name.toLowerCase() === 'website' ? '/products/website' : '#';
 
-                            <div className="flex justify-between items-start mb-8 relative z-10">
-                                <div className="p-4 bg-white/5 rounded-2xl border border-white/10 group-hover:bg-black group-hover:text-white group-hover:border-black transition-all duration-500">
-                                    {React.cloneElement(product.icon, { className: "w-6 h-6 group-hover:text-white transition-colors duration-500" })}
-                                </div>
-                                <span className="text-xs font-semibold uppercase tracking-wider px-3 py-1 bg-white/10 text-white/70 group-hover:bg-black/10 group-hover:text-black/70 group-hover:border-black/10 rounded-full border border-white/5 transition-colors duration-500">
-                                    {product.tag}
-                                </span>
+                                    return (
+                                        <Link
+                                            href={href}
+                                            key={appIdx}
+                                            className="group relative bg-[#0a0a0a]/50 backdrop-blur-sm border border-white/[0.08] rounded-2xl p-4 sm:p-5 flex items-center gap-4 sm:gap-5 hover:bg-white/[0.04] hover:border-white/20 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-1"
+                                        >
+                                            <div className={`w-14 h-14 shrink-0 bg-[#161616] rounded-[14px] border border-white/10 flex items-center justify-center group-hover:scale-110 group-hover:bg-[#1a1a1a] transition-all duration-300 shadow-md`}>
+                                                <app.icon className={`w-6 h-6 sm:w-7 sm:h-7 ${app.color} opacity-90 group-hover:opacity-100`} strokeWidth={1.5} />
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <h3 className="text-[15px] sm:text-[17px] font-bold text-white/90 group-hover:text-white transition-colors truncate">
+                                                    {app.name}
+                                                </h3>
+                                                <p className="text-[11px] sm:text-[13px] text-white/40 leading-[1.4] mt-1 line-clamp-2 pr-2 group-hover:text-white/60 transition-colors">
+                                                    {app.desc}
+                                                </p>
+                                            </div>
+                                        </Link>
+                                    );
+                                })}
                             </div>
-
-                            <h3 className="text-2xl font-bold mb-4 relative z-10 group-hover:text-black transition-colors duration-500">{product.title}</h3>
-                            <p className="text-neutral-400 group-hover:text-neutral-600 mb-8 flex-1 relative z-10 leading-relaxed transition-colors duration-500">
-                                {product.description}
-                            </p>
-
-                            <div className="space-y-3 mb-8 relative z-10">
-                                {product.features.map((feature, i) => (
-                                    <div key={i} className="flex items-center gap-2 text-sm text-neutral-300 group-hover:text-neutral-700 transition-colors duration-500">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-white/40 group-hover:bg-black/40 transition-colors duration-500" />
-                                        {feature}
-                                    </div>
-                                ))}
-                            </div>
-
-                            <Link href="/contact" className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-white/10 group-hover:bg-black group-hover:text-white rounded-full py-3 px-6 transition-all duration-500 relative z-10 w-full hover:scale-105 active:scale-95">
-                                Explore product
-                                <ArrowRight className="w-4 h-4 translate-x-0 group-hover:translate-x-1 transition-transform duration-500" />
-                            </Link>
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Bottom CTA */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="mt-32 sm:mt-48 mb-10 text-center relative max-w-2xl mx-auto flex flex-col items-center"
+                >
+                    <div className="relative mb-8 text-yellow-500/80 flex items-center justify-center">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="-translate-y-6 -translate-x-6 rotate-[-15deg]"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /></svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="translate-y-6 opacity-60"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /></svg>
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="-translate-y-8 translate-x-6 rotate-[15deg] opacity-80"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" /></svg>
+                    </div>
+
+                    <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-bold tracking-tighter text-white mb-10 leading-[1.1]">
+                        Unleash your <br />
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>
+                            growth potential
+                        </span>
+                    </h2>
+
+                    <button className="bg-white text-black font-bold text-sm sm:text-base px-10 py-4 rounded-full hover:bg-white/90 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)] hover:-translate-y-1">
+                        Start now - It's free
+                    </button>
+
+                    {/* Small vertical arrow logic like Odoo layout */}
+                    <div className="mt-8 flex flex-col items-center">
+                        <div className="w-px h-6 bg-gradient-to-b from-white/40 to-transparent mb-2" />
+                        <p className="text-white/40 text-[10px] sm:text-[11px] font-medium uppercase tracking-widest text-center">
+                            No credit card required<br />Instant access
+                        </p>
+                    </div>
+                </motion.div>
 
             </div>
 

@@ -4,64 +4,64 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Stack from '@/components/ui/Stack';
 import ElectricBorder from '@/components/Design/ElectricBorder';
-import { Target, Banknote, ScanBarcode, Cpu, BookOpen, Truck, MonitorSmartphone, Hand } from 'lucide-react';
+import { Target, BarChart3, Users, BookOpen, Clock, ShoppingCart, Layers, MonitorSmartphone, Hand } from 'lucide-react';
 
 const techItems = [
     {
         id: 1,
-        name: "Shop Floor",
-        image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&fit=crop&grayscale=1",
-        desc: "Manufacturing execution and real-time machine telemetry.",
-        icon: Target,
-        features: ["Live IoT Sync", "OEE Tracking", "Defect Logging"]
+        name: "Website Builder",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=400&fit=crop&grayscale=1",
+        desc: "Create stunning business websites and portfolios in minutes.",
+        icon: MonitorSmartphone,
+        features: ["Drag & Drop", "Mobile Responsive", "Custom Domains"]
     },
     {
         id: 2,
-        name: "Expenses",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=300&fit=crop&grayscale=1",
-        desc: "Automated receipt capture and instantaneous OCR processing.",
-        icon: Banknote,
-        features: ["AI OCR Scanning", "Auto-Categorization", "Approval Flows"]
+        name: "Analytics Hub",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400&fit=crop&grayscale=1",
+        desc: "Real-time insights and beautiful charts for your business data.",
+        icon: BarChart3,
+        features: ["Live Dashboards", "Custom Reports", "Export Data"]
     },
     {
         id: 3,
-        name: "Point of Sale",
+        name: "Sales CRM",
         image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?q=80&w=400&fit=crop&grayscale=1",
-        desc: "Omnichannel checkout with seamless inventory syncing.",
-        icon: ScanBarcode,
-        features: ["Offline Mode", "Split Payments", "Loyalty Integrations"]
+        desc: "Track leads, manage pipelines, and close more deals fast.",
+        icon: Users,
+        features: ["Lead Tracking", "Automated Follow-ups", "Pipeline View"]
     },
     {
         id: 4,
-        name: "IoT Edge",
+        name: "Contact Logs",
         image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=400&fit=crop&grayscale=1",
-        desc: "Hardware telemetry and edge computing integration.",
-        icon: Cpu,
-        features: ["Sub-ms Latency", "MQTT/CoAP Support", "Predictive Alerts"]
+        desc: "A secure digital directory for every customer interaction.",
+        icon: BookOpen,
+        features: ["Interaction History", "Secure Records", "Quick Search"]
     },
     {
         id: 5,
-        name: "Frontdesk",
+        name: "Smart Scheduling",
         image: "https://images.unsplash.com/photo-1620286392120-d36009a97d10?q=80&w=400&fit=crop&grayscale=1",
-        desc: "Interactive visitor management and check-in portals.",
-        icon: BookOpen,
-        features: ["Facial Rec", "NDAs & Waivers", "Host Notifications"]
+        desc: "Automated booking system with helpful meeting reminders.",
+        icon: Clock,
+        features: ["Calendar Sync", "SMS Reminders", "Easy Booking"]
     },
     {
         id: 6,
-        name: "Inventory",
+        name: "E-Commerce",
         image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=400&fit=crop&grayscale=1",
-        desc: "Advanced barcode scanning and warehouse routing logistics.",
-        icon: Truck,
-        features: ["3D Bin Mapping", "Pick/Pack Routing", "Cycle Counting"]
+        desc: "Sell products online with built-in payment processing.",
+        icon: ShoppingCart,
+        features: ["Inventory Tracking", "Secure Payments", "Order Management"]
     },
     {
         id: 7,
-        name: "Kiosk",
+        name: "Unified Workspace",
         image: "https://images.unsplash.com/photo-1556742031-c6961e8560b0?q=80&w=300&fit=crop&grayscale=1",
-        desc: "Self-service portals for rapid customer interactions.",
-        icon: MonitorSmartphone,
-        features: ["Custom Branding", "Multi-Language", "Idle Screensavers"]
+        desc: "All your business tools combined in one powerful platform.",
+        icon: Layers,
+        features: ["Cloud Access", "Team Collaboration", "Data Security"]
     }
 ];
 
@@ -116,8 +116,8 @@ export default function AllTechSection() {
 
                 <div className="text-center md:text-left mb-16 sm:mb-20 border-b border-white/10 pb-10">
                     <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tighter text-white leading-tight">
-                        Powering every <br className="hidden md:block" />
-                        <span className="text-white/30">surface area.</span>
+                        Everything you need <br className="hidden md:block" />
+                        <span className="text-white/30">to succeed.</span>
                     </h2>
                 </div>
 

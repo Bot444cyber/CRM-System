@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X, User } from 'lucide-react';
 import FlowingMenu from './FlowingMenu';
 
 const PillNav = ({ logo, items }: { logo: string; items: any[] }) => {
@@ -65,12 +65,9 @@ const PillNav = ({ logo, items }: { logo: string; items: any[] }) => {
 
         {/* 3. Right Section: Actions */}
         <div className="flex-1 flex items-center justify-end gap-3">
-          <button className="hidden lg:block text-[13px] font-semibold text-zinc-400 hover:text-black hover:bg-white px-4 py-2 rounded-full border border-transparent transition-all">
-            Sign In
-          </button>
           <button className="hidden sm:flex group items-center gap-2 bg-black border border-white/20 text-white text-[13px] font-bold px-5 py-2 rounded-full hover:bg-white hover:text-black hover:border-white transition-all active:scale-95 shadow-lg">
-            <Sparkles size={14} className="group-hover:animate-pulse" />
-            <span>Get Started</span>
+            <User size={14} className="group-hover:animate-pulse" />
+            <span>Sign In</span>
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -113,8 +110,8 @@ const PillNav = ({ logo, items }: { logo: string; items: any[] }) => {
           </div>
           <div className="px-6 pt-6">
             <button className="w-full flex justify-center items-center gap-2 bg-white text-black font-bold px-5 py-4 rounded-2xl hover:bg-gray-200 transition-all text-lg shadow-xl">
-              <Sparkles size={18} />
-              Get Started
+              <User size={18} />
+              Sign In
             </button>
           </div>
         </div>
