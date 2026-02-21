@@ -181,7 +181,7 @@ export default function AllTechSection() {
                                         autoplayOptions={{
                                             autoplay: true,
                                             pauseOnHover: true,
-                                            delay: 1000,
+                                            delay: 4000,
                                         }}
                                         onCardChange={(id) => {
                                             const index = techItems.findIndex(t => t.id === id);
