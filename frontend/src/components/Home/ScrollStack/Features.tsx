@@ -18,7 +18,7 @@ const features = [
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
         ),
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
+        image: "https://www.wtp.media/wp-content/uploads/2020/09/google-my-business-improve-ranking.jpg",
         color: "from-white/[0.05] to-transparent",
         borderColor: "border-white/[0.05]",
         glowColor: "bg-white/[0.03]",
@@ -69,7 +69,7 @@ const features = [
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
             </svg>
         ),
-        image: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?q=80&w=2094&auto=format&fit=crop",
+        image: "https://webcdn.ringover.com/assets/desktop/com/features/call-logs/call-logs1.png",
         color: "from-slate-400/[0.05] to-transparent",
         borderColor: "border-white/[0.05]",
         glowColor: "bg-white/[0.03]",
@@ -86,7 +86,7 @@ const features = [
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
             </svg>
         ),
-        image: "https://images.unsplash.com/photo-1506784951209-4522a31f4e3c?q=80&w=2072&auto=format&fit=crop",
+        image: "https://framerusercontent.com/images/xF34xFQ76Ari5St8pnL1PkXO2X0.png?width=1536&height=1024",
         color: "from-orange-400/[0.04] to-transparent",
         borderColor: "border-white/[0.05]",
         glowColor: "bg-white/[0.03]",
