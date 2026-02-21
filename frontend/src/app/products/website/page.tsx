@@ -52,10 +52,9 @@ export default function WebsiteProductPage() {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, ease: "easeOut" }}
-                        className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6 text-white"
-                        style={{ fontFamily: "Space Grotesk, sans-serif" }}
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-bold tracking-tighter mb-6 bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 leading-[0.95]"
                     >
-                        Scale your brand <span className="text-yellow-500 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>online</span>
+                        Scale your brand <span className="text-white/70 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic", paddingRight: '1rem' }}>online</span>
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
@@ -72,10 +71,10 @@ export default function WebsiteProductPage() {
                         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
                     >
-                        <button className="bg-white text-black font-semibold text-sm px-8 py-3.5 rounded-full hover:bg-neutral-200 transition-colors w-full sm:w-auto">
+                        <button className="bg-white text-black font-bold text-sm px-8 py-4 rounded-full hover:bg-gray-200 transition-all hover:scale-105 active:scale-95 shadow-[0_0_30px_rgba(255,255,255,0.2)] w-full sm:w-auto">
                             Start now - It's free
                         </button>
-                        <button className="bg-white/5 text-white font-semibold text-sm px-8 py-3.5 rounded-full border border-white/10 hover:bg-white/10 transition-colors w-full sm:w-auto flex items-center justify-center gap-2">
+                        <button className="bg-white/5 text-white font-bold text-sm px-8 py-4 rounded-full border border-white/10 hover:bg-white hover:text-black hover:border-white transition-all hover:scale-105 active:scale-95 w-full sm:w-auto flex items-center justify-center gap-2">
                             <Sparkles className="w-4 h-4" /> Try with AI
                         </button>
                     </motion.div>
@@ -100,8 +99,8 @@ export default function WebsiteProductPage() {
                 <section className="py-24 md:py-32 relative bg-black border-y border-white/5 overflow-hidden">
                     <div className="max-w-6xl mx-auto px-6 relative">
                         <div className="text-center mb-16 md:mb-24">
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight">
-                                <span className="text-blue-500">Dream it?</span><br />Build it!
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 leading-[1.1]">
+                                <span className="text-white">Dream it?</span><br />Build it!
                             </h2>
                         </div>
 
@@ -110,22 +109,22 @@ export default function WebsiteProductPage() {
                             {[
                                 {
                                     title: "Set", desc: "your business", icon: Building2,
-                                    cTop: "#1e293b", cBot: "#020617",
+                                    cTop: "#333333", cBot: "#111111",
                                     rot: "rotate-[15deg]", mt: "-mt-[5px]"
                                 },
                                 {
                                     title: "Add", desc: "your logo", icon: ImageIcon,
-                                    cTop: "#2dd4bf", cBot: "#0f766e",
+                                    cTop: "#444444", cBot: "#1a1a1a",
                                     rot: "rotate-[5deg]", mt: "mt-[20px] sm:mt-[30px] md:mt-[50px] xl:mt-[75px]"
                                 },
                                 {
                                     title: "Select", desc: "additional features", icon: Blocks,
-                                    cTop: "#fb923c", cBot: "#c2410c",
+                                    cTop: "#555555", cBot: "#222222",
                                     rot: "rotate-[-5deg]", mt: "mt-[25px] sm:mt-[40px] md:mt-[60px] xl:mt-[85px]"
                                 },
                                 {
                                     title: "Choose", desc: "favorite theme", icon: Palette,
-                                    cTop: "#f87171", cBot: "#b91c1c",
+                                    cTop: "#666666", cBot: "#2a2a2a",
                                     rot: "rotate-[-15deg]", mt: "mt-[2px] sm:mt-[5px] md:-mt-[10px] xl:mt-[5px]"
                                 }
                             ].map((step, i) => (
@@ -201,9 +200,9 @@ export default function WebsiteProductPage() {
                 <section className="py-24 bg-black border-t border-white/5 relative overflow-hidden">
                     <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
                         <div>
-                            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 leading-[1.1]">
                                 Scalable and fully <br />
-                                <span className="text-green-400 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>integrated</span>
+                                <span className="text-white/70 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>integrated</span>
                             </h2>
                             <p className="text-white/50 text-lg leading-relaxed">
                                 Your website shouldn't exist in a silo. Natively connect your frontend to CRM, Inventory, e-Commerce, and Marketing tools without complex Zapier workflows.
@@ -216,7 +215,7 @@ export default function WebsiteProductPage() {
                             <div className="absolute w-[60%] max-w-[240px] aspect-square rounded-full border border-white/10 border-dashed animate-[spin_40s_linear_infinite_reverse]" />
 
                             {/* Center Hub */}
-                            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-blue-600 to-emerald-500 p-[1px] shadow-[0_0_40px_rgba(56,189,248,0.3)] z-10 relative">
+                            <div className="w-24 h-24 rounded-full bg-gradient-to-tr from-white/30 to-white/5 p-[1px] shadow-[0_0_40px_rgba(255,255,255,0.1)] z-10 relative">
                                 <div className="w-full h-full bg-black rounded-full flex items-center justify-center">
                                     <Globe2 className="w-10 h-10 text-white" />
                                 </div>
@@ -224,12 +223,12 @@ export default function WebsiteProductPage() {
 
                             {/* Orbiting Icons */}
                             {[
-                                { icon: ShoppingCart, color: 'text-purple-400', pos: '-top-4 left-1/2 -translate-x-1/2' },
-                                { icon: BarChart, color: 'text-green-400', pos: 'top-1/4 -right-4' },
-                                { icon: Rocket, color: 'text-rose-400', pos: '-bottom-4 left-1/2 -translate-x-1/2' },
-                                { icon: LayoutTemplate, color: 'text-blue-400', pos: 'bottom-1/4 -left-4' },
+                                { icon: ShoppingCart, color: 'text-white/70', pos: '-top-4 left-1/2 -translate-x-1/2' },
+                                { icon: BarChart, color: 'text-white/70', pos: 'top-1/4 -right-4' },
+                                { icon: Rocket, color: 'text-white/70', pos: '-bottom-4 left-1/2 -translate-x-1/2' },
+                                { icon: LayoutTemplate, color: 'text-white/70', pos: 'bottom-1/4 -left-4' },
                             ].map((item, i) => (
-                                <div key={i} className={`absolute ${item.pos} w-14 h-14 rounded-2xl bg-[#111115] border border-white/10 flex items-center justify-center shadow-lg transform transition-transform hover:scale-110 z-20`}>
+                                <div key={i} className={`absolute ${item.pos} w-14 h-14 rounded-2xl bg-[#111115] border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.05)] transform transition-transform hover:scale-110 z-20`}>
                                     <item.icon className={`w-6 h-6 ${item.color}`} />
                                 </div>
                             ))}
@@ -241,8 +240,8 @@ export default function WebsiteProductPage() {
                 <section className="py-24 relative overflow-hidden">
                     <div className="max-w-6xl mx-auto px-6 relative z-10">
                         <div className="text-center mb-16">
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white tracking-tighter">
-                                Craft your site like a <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>designer</span>
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tighter bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 leading-[1.1]">
+                                Craft your site like a <span className="text-white/70 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic", paddingRight: '0.5rem' }}>designer</span>
                             </h2>
                             <p className="text-white/50 max-w-2xl mx-auto text-lg leading-relaxed">
                                 Experience an intuitive grid system, infinite Google Fonts, stunning dynamic gradients, and granular animation controls right in your browser.
@@ -281,9 +280,9 @@ export default function WebsiteProductPage() {
                             transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
                             className="p-10 md:p-20 text-center relative overflow-hidden rounded-[2.5rem] border border-transparent transition-all duration-500 hover:bg-white/[0.02] hover:border-white/10 hover:shadow-[0_0_80px_rgba(255,255,255,0.05)] cursor-pointer group"
                         >
-                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight leading-tight group-hover:scale-[1.02] transition-transform duration-500">
+                            <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-[1.1] group-hover:scale-[1.02] transition-transform duration-500 bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 truncate text-ellipsis overflow-hidden">
                                 Start entirely free.<br />
-                                <span className="text-white/70 font-medium tracking-normal" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>No catch.</span>
+                                <span className="text-white/70 font-medium tracking-normal w-full inline-block" style={{ fontFamily: "Georgia, serif", fontStyle: "italic", paddingRight: '0.2rem' }}>No catch.</span>
                             </h2>
 
                             <p className="text-white/50 max-w-lg mx-auto text-lg md:text-xl leading-relaxed mb-10 group-hover:text-white/70 transition-colors duration-500">
@@ -301,8 +300,8 @@ export default function WebsiteProductPage() {
                 <section className="py-24 max-w-6xl mx-auto px-6 relative">
                     <div className="text-center mb-16 relative inline-block left-1/2 -translate-x-1/2">
                         <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/5 rounded-full blur-2xl pointer-events-none" />
-                        <h2 className="text-4xl md:text-5xl font-bold text-white relative z-10">
-                            All the <span className="text-white/70 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic" }}>features</span><br />done right.
+                        <h2 className="text-4xl md:text-5xl font-bold relative z-10 bg-clip-text text-transparent bg-linear-to-b from-white via-white to-white/30 leading-[1.1]">
+                            All the <span className="text-white/70 font-medium" style={{ fontFamily: "Georgia, serif", fontStyle: "italic", paddingRight: '0.5rem' }}>features</span><br />done right.
                         </h2>
                     </div>
 
