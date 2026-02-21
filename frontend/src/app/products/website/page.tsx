@@ -249,82 +249,22 @@ export default function WebsiteProductPage() {
                             </p>
                         </div>
 
-                        {/* Designer UI Mockup */}
+                        {/* Designer UI Video */}
                         <motion.div
                             initial={{ y: 50, opacity: 0 }}
                             whileInView={{ y: 0, opacity: 1 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.8 }}
-                            className="relative rounded-3xl bg-[#0a0a0e] border border-white/10 overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] aspect-[16/10] md:aspect-[16/9] flex"
+                            className="relative rounded-3xl bg-[#0a0a0e] border border-white/10 overflow-hidden shadow-[0_40px_100px_rgba(0,0,0,0.6)] aspect-[16/10] md:aspect-[16/9] flex justify-center items-center"
                         >
-                            {/* Editor Sidebar Left */}
-                            <div className="w-16 md:w-64 bg-[#111115] border-r border-white/10 flex flex-col shrink-0">
-                                <div className="p-4 border-b border-white/10 h-14 flex items-center justify-center md:justify-start">
-                                    <div className="w-6 h-6 rounded bg-gradient-to-tr from-blue-500 to-purple-500" />
-                                    <span className="hidden md:block ml-3 font-bold text-white text-sm">Design Mode</span>
-                                </div>
-                                <div className="flex-1 p-2 md:p-4 space-y-4">
-                                    {[1, 2, 3, 4, 5].map(i => (
-                                        <div key={i} className="h-10 rounded-lg bg-white/5 border border-white/5 flex items-center justify-center md:justify-start md:px-3 hover:bg-white/10 transition cursor-pointer">
-                                            <div className="w-4 h-4 rounded-sm bg-white/20" />
-                                            <div className="hidden md:block h-2 w-24 bg-white/10 rounded-sm ml-3" />
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-
-                            {/* Canvas Center */}
-                            <div className="flex-1 bg-black p-4 md:p-8 overflow-hidden relative flex flex-col items-center justify-center">
-                                {/* The 'site' being designed */}
-                                <div className="w-full max-w-lg aspect-video bg-gradient-to-br from-indigo-900/40 to-black rounded-xl border border-white/20 p-6 flex flex-col shadow-2xl relative overflow-hidden">
-                                    <div className="absolute -inset-24 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-3xl rounded-full" />
-                                    <h3 className="text-3xl font-bold text-white relative z-10 mb-2 tracking-tighter">Visual aesthetics.</h3>
-                                    <p className="text-white/60 text-sm w-3/4 relative z-10">Designing your dream project has never been so seamless and powerful.</p>
-                                    <div className="mt-auto flex gap-3 relative z-10">
-                                        <div className="h-8 w-24 bg-blue-500 rounded-full" />
-                                        <div className="h-8 w-24 border border-white/20 rounded-full" />
-                                    </div>
-                                </div>
-
-                                {/* Floating cursor/tooltip indicating 'designing' like the image */}
-                                <motion.div
-                                    animate={{ x: [0, 50, 0], y: [0, -20, 0] }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute mt-10 ml-40 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold shadow-xl flex items-center gap-2"
-                                >
-                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Editing layout
-                                </motion.div>
-                            </div>
-
-                            {/* Settings Sidebar Right */}
-                            <div className="w-16 md:w-72 bg-[#111115] border-l border-white/10 hidden sm:flex flex-col shrink-0 overflow-y-auto">
-                                <div className="p-4 border-b border-white/10 h-14 flex items-center">
-                                    <span className="font-semibold text-white/80 text-xs tracking-wider uppercase">Properties</span>
-                                </div>
-                                <div className="p-4 space-y-6">
-                                    <div>
-                                        <div className="flex justify-between text-xs text-white/60 mb-2"><span>Typography</span></div>
-                                        <div className="h-9 w-full bg-white/5 border border-white/10 rounded bg-[#0a0a0a] flex items-center px-3">
-                                            <span className="text-sm text-white/90 font-sans">Inter</span>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="flex justify-between text-xs text-white/60 mb-2"><span>Background</span></div>
-                                        <div className="grid grid-cols-5 gap-2">
-                                            {['bg-blue-500', 'bg-purple-500', 'bg-pink-500', 'bg-rose-500', 'bg-orange-500'].map(bg => (
-                                                <div key={bg} className={`aspect-square rounded ${bg} shadow-inner cursor-pointer hover:scale-110 transition`} />
-                                            ))}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div className="flex justify-between text-xs text-white/60 mb-2"><span>Spacing</span></div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <div className="h-8 border border-white/10 rounded bg-white/5 flex items-center justify-center text-xs text-white/50">M: 24px</div>
-                                            <div className="h-8 border border-white/10 rounded bg-white/5 flex items-center justify-center text-xs text-white/50">P: 48px</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <video
+                                src="https://download.odoocdn.com/videos/odoo_com/video_website.webm"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className="w-full h-full object-cover"
+                            />
                         </motion.div>
                     </div>
                 </section>
