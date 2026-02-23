@@ -1,5 +1,4 @@
 import Hero from '@/components/Home/Hero';
-import AllTechSection from '@/components/Home/AllTechSection';
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
 import Features from '@/components/Home/ScrollStack/Features';
@@ -13,7 +12,6 @@ export default function App() {
     <main className="w-full min-h-screen bg-black">
       <Header />
         <Hero />
-        <AllTechSection />
         <Features />
         <Integrations />
         <SocialProof />
